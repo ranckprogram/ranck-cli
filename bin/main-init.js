@@ -2,7 +2,8 @@
 
 const program = require("commander");
 const path = require("path");
-
+const chalk = require("chalk");
+const log = console.log;
 
 const download = require("../lib/download");
 
@@ -14,6 +15,8 @@ let projectName = program.args[0];
 if (!projectName) {
   // project-name 必填
   // 相当于执行命令的--help选项，显示help信息，这是commander内置的一个命令选项
+  log(chalk.red("项目名必填"));
+
   program.help();
   return;
 }
@@ -28,7 +31,7 @@ function go() {
   console.log("开搞");
   console.log(path.resolve(process.cwd(), path.join("."), rootName));
 
-  download(rootName)
+  download(projectName)
     .then((target) => console.log(target))
     .catch((err) => console.log(err));
 }

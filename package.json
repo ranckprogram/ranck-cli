@@ -1,6 +1,6 @@
 {
   "bin": {
-    "cc": "./bin/main.js"
+    "cc": "./bin/index.js"
   },
   "name": "ranck-cli",
   "version": "1.0.0",
